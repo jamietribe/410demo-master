@@ -1,24 +1,37 @@
 
 <?php
 	require_once('includes/config.php');
+	
+	//query the database and store the result
+	//in the myData variable
+	
 
 	$sql = 'SELECT * FROM page';
  	$myData = $db->query($sql);
 	
 	while($row = $myData ->fetch_assoc())
-	{
+	
+	if($row['view'] == 'n')
+		{
+			continue;
+		
+		}
+		
+		
 		if($row['section_name'] == 'intro')
 		{
 			$intro = $row['content'];
 		
 		}
 	 
-		if($row['section_name'] == 'blurb')
+		if($row['section_name'] == 'intro')
 		{
-			$blurb = $row['content'];
+			$intro = $row['content'];
 		
 		}
-	}
+		
+
+
 	
  	
 
@@ -43,8 +56,8 @@
     	<figcaption>According to Bruce Lawson, the section tag is NOT another DIV.</figcaption>
     </figure>
     <p> <?php echo @$intro; ?></p>
-<p>
- <p> <?php echo @$blurb; ?></p></p>
+ 
+ <p> <?php echo @$blurb; ?></p> 
   </section>
   
   <?php include_once('includes/sidebar.inc.php');?>
