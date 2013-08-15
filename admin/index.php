@@ -21,13 +21,13 @@
 		$row = $myData->fetch_assoc();
 		
 		
-		print_r($row);exit;
+		//print_r($row);exit;
 		
 		if($row['username'] == $user && $row['password'] == $pass)
 		{
 		//header('Location: update.php');	
 		echo 'it worked';
-		print_r($row);
+		 
 		
 		}
 		else
@@ -56,7 +56,7 @@
       </li>
       <li>
         <label for="pass">Password:</label>
-        <input name="pass" type="text" placeholder="password"/>
+        <input name="pass" type="password" placeholder="password"/>
       </li>
       <li>
         <input name="submitted" type="submit" value="Login Now"/>
